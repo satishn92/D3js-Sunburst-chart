@@ -1,0 +1,22 @@
+{
+  "name": "Food",
+  "children": [
+    {
+      "name": "Breakfast", 
+      "children": [
+        {
+          "name": "Beverages", 
+          "children": [
+            {"name": "Coffee", "calories":5},
+            {"name": "Cold Coffee", "calories": 10},
+            {"name": "Tea", "calories": 5}
+          ]
+        },
+        {"name": "Bread", "calories": 20},
+        {"name": "Butter", "calories": 10}
+      ]
+    },
+    {"name": "Lunch", "calories": 100},
+    {"name": "Dinner", "calories": 50}
+  ]
+}

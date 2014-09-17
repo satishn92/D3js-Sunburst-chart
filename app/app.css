@@ -1,0 +1,55 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.tooltip{
+  position: absolute;
+  text-align: center;
+  /*width: 60px;
+  height: 40px;*/
+  padding: 10px 10px 10px 10px;
+  background-color: black;
+  opacity: 0.6;
+  color: white;
+  display: none;
+  z-index: 2000;
+}
+
+.tooltipName{
+  color: green;
+}
+
+.tooltipSize{
+  color: red;
+}
+
+.hover {
+  fill: orange !important;
+}
