@@ -80,8 +80,8 @@ angular.module('app.directives', [])
           .attr("class", "legend")
           .style("position", "absolute")
           .style("right", 0)
-          .style("top", "400px")
-          .style("width", "430px")
+          .style("top", "300px")
+          .style("width", "500px")
           .style("height", "400px")
           // .style("background-color", "red")
           .style("color", "white");
@@ -132,7 +132,8 @@ angular.module('app.directives', [])
           var inside = "";
           // return "<p>" + sequenceNodes + "</p>";
           for(var node in sequenceNodes){
-            inside += "<p style='background-color: #CCFF00; color: red; margin:0; padding: 5px 0 5px 0;'> " + ((node === "0") ? "Root Element" : "Child Element no: " + node) + "</p><p style='background-color: blue; margin: 0; padding: 5px 0 5px 0;'> Name: " + sequenceNodes[node].name + "</p><p style='background-color: blue; margin: 0 0 20px 0; padding: 5px 0 5px 0;'> Total Size: " + sequenceNodes[node].value + "</p>"; 
+            var no_children = sequenceNodes[node].children ? sequenceNodes[node].children.length : 0;
+            inside += "<p style='background-color: #CCFF00; color: red; margin:0 0 0 " + (node * 50) + "px; padding: 5px 0 5px 5px;'> " + ((node === "0") ? "Root Element" : "Child Element no: " + node) + "</p><p style='background-color: #0099FF; margin:0 0 0 " + (node * 50) + "px; padding: 0 0 5px 5px;'> Name: " + sequenceNodes[node].name + "</p><p style='background-color: #0099FF; margin: 0 0 0 " + (node * 50) + "px; padding: 0 0 5px 5px;'> Total Size: " + sequenceNodes[node].value + "</p><p style='background-color: #0099FF; margin: 0 0 20px " + (node * 50) + "px; padding: 0 0 5px 5px;'> Number of children: " + no_children + "</p>"; 
           }
 
           return inside;
