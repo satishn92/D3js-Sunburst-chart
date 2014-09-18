@@ -53,3 +53,42 @@
 .hover {
   fill: red !important;
 }
+
+div.Details{
+  position: absolute;
+  top: 900px;
+  left: 5%;
+  /*border: 1px solid black;*/
+  width: 500px;
+  /*height: 300px;*/
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+div.Data{
+  position: absolute;
+  top: 900px;
+  right: 5%;
+  /*border: 1px solid black;*/
+  width: 500px;
+  /*height: 300px;*/
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+p.details{
+  font-size: 12px;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+div.details{
+  /*background-color: blue;*/
+  height: 14px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+hr.details{
+  margin: 0 0 10px 0;
+}
