@@ -9,8 +9,8 @@ angular.module('app.directives', [])
     templateUrl: 'templates/sunburstGraphTemplate.html',
     link: function($scope,$element,$attr) {
       dataValidate($scope.data);
-      var width = 960,
-          height = 700,
+      var width = 600,
+          height = 550,
           radius = Math.min(width, height) / 2,
           color1 = d3.scale.category10(),
           color2 = d3.scale.category20(), 
@@ -18,7 +18,7 @@ angular.module('app.directives', [])
           color4 = d3.scale.category20c(),
           color = [color1, color2, color3, color4];
 
-      var svg = d3.select("body").append("svg")
+      var svg = d3.select("div.container").append("svg")
           .attr("width", width)
           .attr("height", height)
           .append("g")
@@ -57,26 +57,26 @@ angular.module('app.directives', [])
       // Adding the change event of Count and Size check boxes.
       d3.selectAll("input.valueBox").on("change", change); 
 
-      // Appending tooltip to the body
-      var tooltip = d3.select("body").append("div")
-          .attr("class", "tooltip");
-
-      // Appending legend to the body
-      var legend = d3.select("body").append("div")
+      // Appending legend to the container
+      var legend = d3.select("div.container").append("div")
           .attr("class", "legend")
           .style("width", "500px")
-          .style("height", "400px")
+          .style("height", "500px")
           .style("color", "white");
 
-      // Appending Details box to the body
-      var Details = d3.select("body").append("div")
+      // Appending Details box to the container
+      var Details = d3.select("div.container").append("div")
           .attr("class", "Details");
 
       // Show the details of root element in details box on page load
       showDetails("count",$scope.data.children);
 
-      var Data = d3.select("body").append("div")
+      var Data = d3.select("div.container").append("div")
           .attr("class", "Data");
+
+      // Appending tooltip to the container
+      var tooltip = d3.select("div.container").append("div")
+          .attr("class", "tooltip");
 
       // Stash the old values for transition.
       function stash(d) {
@@ -117,8 +117,10 @@ angular.module('app.directives', [])
         tooltip.transition()
                 .duration(3000)
                 .style("display", "block");
+        console.log(d3.mouse(this)[0]);
 
         tooltip.html("<p> Name: <span class='tooltipName'>" + d.name + "</span></p><p> Total size: <span class='tooltipSize'>" + d.value + "</span></p>")
+                .style("position", "absolute")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px");
 
@@ -152,7 +154,7 @@ angular.module('app.directives', [])
 
       // Move the Tooltip along with the cursor
       function mousemove(d){
-        tooltip.style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY) + "px");
+        tooltip.style("position", "absolute").style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY) + "px");
       }
 
       // Changes the value to Size and Count on changing the selection of the checkBoxes.

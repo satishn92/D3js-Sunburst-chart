@@ -30,7 +30,7 @@
 }
 
 .tooltip{
-  position: absolute;
+  /*position: absolute;*/
   text-align: center;
   /*width: 60px;
   height: 40px;*/
@@ -56,17 +56,15 @@
 
 div.Details{
   position: absolute;
-  top: 780px;
-  left: 5%;
-  width: 500px;
+  width: 610px;
   display: inline-block;
   margin-bottom: 30px;
 }
 
 div.Data{
   position: absolute;
-  top: 600px;
-  right: 2%;
+  right: 5px;
+  top: 510px;
   width: 500px;
   margin-bottom: 30px;
   background-color: #F7FAF9 ;
@@ -78,6 +76,7 @@ p.details{
   font-size: 12px;
   padding-left: 10px;
   display: inline-block;
+  margin: 0;
 }
 
 div.details{
@@ -92,7 +91,12 @@ hr.details{
 
 div.legend{
   position: absolute;
-  right: 0;
-  top: 5%;
+  right: 5px;
+  top: 0;
   display: inline-block;
+}
+
+div.container{
+  position: relative;
+  width: 100%;
 }
