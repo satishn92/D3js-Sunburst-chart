@@ -64,9 +64,6 @@ angular.module('app.directives', [])
       // Appending legend to the body
       var legend = d3.select("body").append("div")
           .attr("class", "legend")
-          // .style("position", "absolute")
-          // .style("right", 0)
-          // .style("top", "300px")
           .style("width", "500px")
           .style("height", "400px")
           .style("color", "white");
@@ -166,6 +163,8 @@ angular.module('app.directives', [])
                 if($scope.size === "size") return d.size;
                 if($scope.size === "calories") return d.calories; 
               };
+
+        Data.style("opacity", 0);
 
         path
             .data(partition.value(value).nodes)

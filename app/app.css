@@ -55,26 +55,23 @@
 }
 
 div.Details{
-  position: relative;
-  top: 50px;
-  left: -45%;
+  position: absolute;
+  top: 780px;
+  left: 5%;
   width: 500px;
   display: inline-block;
   margin-bottom: 30px;
-  border: 1px solid red;
 }
 
 div.Data{
   position: absolute;
   top: 600px;
-  right: 5%;
+  right: 2%;
   width: 500px;
-  display: inline-block;
   margin-bottom: 30px;
   background-color: #F7FAF9 ;
   padding:10px;
-  border: 1px solid red;
-  /*display: none;*/
+  display: none;
 }
 
 p.details{
@@ -94,7 +91,6 @@ hr.details{
 }
 
 div.legend{
-  border: 1px solid red;
   position: absolute;
   right: 0;
   top: 5%;
