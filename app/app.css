@@ -55,25 +55,26 @@
 }
 
 div.Details{
-  position: absolute;
-  top: 900px;
-  left: 5%;
-  /*border: 1px solid black;*/
+  position: relative;
+  top: 50px;
+  left: -45%;
   width: 500px;
-  /*height: 300px;*/
   display: inline-block;
   margin-bottom: 30px;
+  border: 1px solid red;
 }
 
 div.Data{
   position: absolute;
-  top: 900px;
+  top: 600px;
   right: 5%;
-  /*border: 1px solid black;*/
   width: 500px;
-  /*height: 300px;*/
   display: inline-block;
   margin-bottom: 30px;
+  background-color: #F7FAF9 ;
+  padding:10px;
+  border: 1px solid red;
+  /*display: none;*/
 }
 
 p.details{
@@ -83,7 +84,6 @@ p.details{
 }
 
 div.details{
-  /*background-color: blue;*/
   height: 14px;
   display: inline-block;
   margin-left: 10px;
@@ -91,4 +91,12 @@ div.details{
 
 hr.details{
   margin: 0 0 10px 0;
+}
+
+div.legend{
+  border: 1px solid red;
+  position: absolute;
+  right: 0;
+  top: 5%;
+  display: inline-block;
 }

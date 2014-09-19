@@ -8,23 +8,20 @@ angular.module('app.directives', [])
     },
     templateUrl: 'templates/sunburstGraphTemplate.html',
     link: function($scope,$element,$attr) {
-      // console.log($scope.data.children[0]);
-      // console.log(color1);
+      dataValidate($scope.data);
       var width = 960,
           height = 700,
           radius = Math.min(width, height) / 2,
-          detailedHtml = "",
-          totalBarLength = 0,
-          barLength = 0,
           color1 = d3.scale.category10(),
           color2 = d3.scale.category20(), 
           color3 = d3.scale.category20b(),
-          color4 = d3.scale.category20c();
+          color4 = d3.scale.category20c(),
+          color = [color1, color2, color3, color4];
 
       var svg = d3.select("body").append("svg")
           .attr("width", width)
           .attr("height", height)
-        .append("g")
+          .append("g")
           .attr("transform", "translate(" + width / 2 + "," + height * .52 + ")");
 
       var partition = d3.layout.partition()
@@ -44,16 +41,11 @@ angular.module('app.directives', [])
           .attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
           .attr("d", arc)
           .style("stroke", "#fff")
-          .style("fill", function(d) { 
-            // return color1((d.children ? d : d.parent).name);
-            // return d.children ? color1(d.name) : color2(d.name);
-            var color = [color1, color2, color3, color4];
-            var i = 0;
-            return color[i](d.name);
-            if(i === 3) {
-              i = 0;
+          .style("fill", function(d) {
+            if(d.depth === 0) {
+              return color[d.depth](d.name);
             } else {
-              i = i + 1;
+              return color[(d.depth) - 1](d.name);
             }
           })
           .style("fill-rule", "evenodd")
@@ -62,61 +54,32 @@ angular.module('app.directives', [])
           .on("mousemove", mousemove)
           .each(stash);
 
-      d3.selectAll("input.valueBox").on("change", function change() {
-        var value = this.value === "count"
-            ? function() { return 1; }
-            : function(d) { 
-                if($scope.size === "size") return d.size;
-                if($scope.size === "calories") return d.calories; 
-              };
+      // Adding the change event of Count and Size check boxes.
+      d3.selectAll("input.valueBox").on("change", change); 
 
-        path
-            .data(partition.value(value).nodes)
-          .transition()
-            .duration(1500)
-            .attrTween("d", arcTween);
-
-        showDetails(this.value,$scope.data.children);
-
-        d3.selectAll("a.view-data")
-          // .data($scope.data.children)
-          .on("click", showData);
-
-        d3.selectAll("a.view-children")
-            .on("click", showData);
-      });
-
+      // Appending tooltip to the body
       var tooltip = d3.select("body").append("div")
           .attr("class", "tooltip");
 
+      // Appending legend to the body
       var legend = d3.select("body").append("div")
           .attr("class", "legend")
-          .style("position", "absolute")
-          .style("right", 0)
-          .style("top", "300px")
+          // .style("position", "absolute")
+          // .style("right", 0)
+          // .style("top", "300px")
           .style("width", "500px")
           .style("height", "400px")
-          // .style("background-color", "red")
           .style("color", "white");
 
+      // Appending Details box to the body
       var Details = d3.select("body").append("div")
-          .attr("class", "Details")
-          .html(detailedHtml);
+          .attr("class", "Details");
 
+      // Show the details of root element in details box on page load
       showDetails("count",$scope.data.children);
 
       var Data = d3.select("body").append("div")
           .attr("class", "Data");
-
-      d3.selectAll("a.view-data")
-          // .data($scope.data.children)
-          .on("click", showData);
-
-      d3.selectAll("a.view-children")
-            .on("click", showData);
-
-      d3.selectAll("a.view-previous")
-            .on("click", showData);
 
       // Stash the old values for transition.
       function stash(d) {
@@ -135,14 +98,16 @@ angular.module('app.directives', [])
         };
       }
 
-      // Highlight hovered elements
+      // Highlight hovered elements and show the parents of the highlighted element and show the the data in a tree structure adjacent to the Graph.
       function mouseover(d){
 
         var sequenceNodes = getAncestors(d);
 
+        // Make elements other than hovered as Transparent
         d3.selectAll("path")
             .style("opacity", 0.2);
 
+        // Add Highlighter on the hovered element
         d3.select(this)
             .classed("hover", true);
 
@@ -162,7 +127,6 @@ angular.module('app.directives', [])
 
         legend.html(function() {
           var inside = "";
-          // return "<p>" + sequenceNodes + "</p>";
           for(var node in sequenceNodes){
             var no_children = sequenceNodes[node].children ? sequenceNodes[node].children.length : 0;
             inside += "<p style='background-color: #CCFF00; color: red; margin:0 0 0 " + (node * 50) + "px; padding: 5px 0 5px 5px;'> " + ((node === "0") ? "Root Element" : "Child Element no: " + node) + "</p><p style='background-color: #0099FF; margin:0 0 0 " + (node * 50) + "px; padding: 0 0 5px 5px;'> Name: " + sequenceNodes[node].name + "</p><p style='background-color: #0099FF; margin: 0 0 0 " + (node * 50) + "px; padding: 0 0 5px 5px;'> Total Size: " + sequenceNodes[node].value + "</p><p style='background-color: #0099FF; margin: 0 0 20px " + (node * 50) + "px; padding: 0 0 5px 5px;'> Number of children: " + no_children + "</p>"; 
@@ -172,10 +136,9 @@ angular.module('app.directives', [])
 
         });
 
-        // value = value + 1000;
       }
 
-      // Restore everything to full opacity
+      // Restore everything to full opacity and hides the tree structure
       function mouseleave(d) {
         d3.selectAll("path")
             .style("opacity", 1);
@@ -190,15 +153,47 @@ angular.module('app.directives', [])
         legend.html("");
       }
 
+      // Move the Tooltip along with the cursor
       function mousemove(d){
         tooltip.style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY) + "px");
       }
 
+      // Changes the value to Size and Count on changing the selection of the checkBoxes.
+      function change() {
+        var value = this.value === "count"
+            ? function() { return 1; }
+            : function(d) { 
+                if($scope.size === "size") return d.size;
+                if($scope.size === "calories") return d.calories; 
+              };
+
+        path
+            .data(partition.value(value).nodes)
+          .transition()
+            .duration(1500)
+            .attrTween("d", arcTween);
+
+        showDetails(this.value,$scope.data.children);
+
+      };
+
+      // Show the Details of the root element Below the graph
       function showDetails(value,elements) {
 
-        detailedHtml = "<h1 style='font-size: 14px; font-weight: 800;'>Distribution by Ratings</h1><hr class='details'>";
-        totalBarLength = 0;
-        var percentage = 0;
+        var detailedHtml = "<h1 style='font-size: 14px; font-weight: 800;'>Distribution by Ratings</h1><hr class='details'>",
+            // totalBarLength = 0,
+            barLength = 0,
+            percentage = 0,
+            barLengths = [];
+
+        // closure to get barLength
+        var getTotalBarLength = (function() {
+          var totalBarLength = 0;
+          return function(barlngth) {
+            totalBarLength += barlngth;
+            return totalBarLength;
+          }
+        })();            
 
         for(var root in elements) {
           if(value === "count") {
@@ -206,35 +201,42 @@ angular.module('app.directives', [])
           } else {
             barLength = (elements[root].value/2000);
           }
-          totalBarLength += barLength;
-        }
-
-        for(var root in elements) {
-          if(value === "count") {
-            barLength = (elements[root].children.length * 6);
-          } else {
-            barLength = (elements[root].value/2000);
-          }
-          percentage = ((barLength/totalBarLength) * 100).toFixed(2);
-          detailedHtml += "<div class='row'><div class='col-md-2'><p class='details'>" + elements[root].name + "(" + elements[root].children.length + ")</p></div><div class='col-md-6'><div class='details' style=' width: " + barLength + "px; background-color:" +  color1(elements[root].name) + ";'></div></div><div class='col-md-2'><p class='details'>" + percentage + " %</p></div><div class='col-md-2'><a class='view-data' style='cursor: pointer;' >view</a></div></div><hr class='details'>";
+          barLengths.push(barLength);
+          getTotalBarLength(barLength);
+          detailedHtml += "<div class='row'><div class='col-md-2'><p class='details'>" + elements[root].name + "(" + elements[root].children.length + ")</p></div><div class='col-md-6'><div class='details' style=' background-color:" +  color1(elements[root].name) + ";'></div></div><div class='col-md-2'><p class='details percentage'></p></div><div class='col-md-2'><a class='view-data' style='cursor: pointer;' >view</a></div></div><hr class='details'>";
         }
 
 
+        Details.html(detailedHtml)
+                .style("opacity", 0)
+                .transition()
+                .delay(1000)
+                .duration(1500)
+                .style("opacity", 1);
 
-        Details.html(detailedHtml).transition().duration(3000);
+        d3.selectAll("div.details")
+            .data(barLengths)
+            .transition()
+            .delay(2500)
+            .duration(1500)
+            .style("width", function(d) {
+              return d + "px";
+            });
+
+        d3.selectAll("p.percentage")
+            .data(barLengths)
+            .text(function(d) {
+              percentage = ((d/getTotalBarLength(0)) * 100).toFixed(2);
+              return percentage + "%";
+            });
 
         d3.selectAll("a.view-data")
-          .data(elements);
+          .data(elements)
+          .on("click", showData);
 
       }
 
-      // function click(d) {
-      //   d3.event.stopPropagation();
-      //   console.log("Hi");
-      //   var sequenceNodes = getAncestors(d);
-      //   console.log(d);
-      // }
-
+      // Get all the ancestors of the given node
       function getAncestors(node) {
         var path = [];
         var current = node;
@@ -245,8 +247,8 @@ angular.module('app.directives', [])
         return path;
       }
 
+      // Displays all the child node of the given parent node
       function showData(d) {
-        console.log(d);
 
         var childrenHtml = "",
             previousHtml = "";
@@ -270,7 +272,12 @@ angular.module('app.directives', [])
           dataHtml += "<div class='row'><div class='col-md-10'><p style='color: #CC6600'>" + d.children[element].name + "</p></div><div class='col-md-2'>" + childrenHtml + "</div></div><hr class='details'>";
         }
 
-        Data.html(dataHtml);
+        Data.html(dataHtml)
+            .style("display","block")
+            .style("opacity",0)
+            .transition()
+            .duration(1500)
+            .style("opacity",1);
 
         d3.selectAll("a.view-previous")
             .on("click", function() { showData(d.parent)});
@@ -278,6 +285,15 @@ angular.module('app.directives', [])
         d3.selectAll("a.view-children")
             .data(d.children)
             .on("click", showData);
+      }
+
+      // Function for Data Validation
+      function dataValidate(data) {
+        if( data === null || data === "") {
+          alert("Data is not valid");
+        } else {
+          alert("Data is valid");
+        }
       }
 
       d3.select(self.frameElement).style("height", height + "px");
