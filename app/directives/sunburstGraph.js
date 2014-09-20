@@ -197,9 +197,9 @@ angular.module('app.directives', [])
 
         for(var root in elements) {
           if(value === "count") {
-            barLength = (elements[root].children.length * 8);
+            barLength = (elements[root].children.length );
           } else {
-            barLength = (elements[root].value/2000);
+            barLength = (elements[root].value);
           }
           barLengths.push(barLength);
           getTotalBarLength(barLength);
