@@ -9,8 +9,8 @@ angular.module('app.directives', [])
     templateUrl: 'templates/sunburstGraphTemplate.html',
     link: function($scope,$element,$attr) {
       dataValidate($scope.data);
-      var width = 600,
-          height = 550,
+      var width = 650,
+          height = 600,
           radius = Math.min(width, height) / 2,
           color1 = d3.scale.category10(),
           color2 = d3.scale.category20(), 
@@ -22,7 +22,7 @@ angular.module('app.directives', [])
           .attr("width", width)
           .attr("height", height)
           .append("g")
-          .attr("transform", "translate(" + width / 2 + "," + height * .52 + ")");
+          .attr("transform", "translate(" + (width / 2 - 10) + "," + height * .52 + ")");
 
       var partition = d3.layout.partition()
           .sort(null)
@@ -75,7 +75,7 @@ angular.module('app.directives', [])
           .attr("class", "Data");
 
       // Appending tooltip to the container
-      var tooltip = d3.select("div.container").append("div")
+      var tooltip = d3.select("body").append("div")
           .attr("class", "tooltip");
 
       // Stash the old values for transition.
@@ -117,7 +117,6 @@ angular.module('app.directives', [])
         tooltip.transition()
                 .duration(3000)
                 .style("display", "block");
-        console.log(d3.mouse(this)[0]);
 
         tooltip.html("<p> Name: <span class='tooltipName'>" + d.name + "</span></p><p> Total size: <span class='tooltipSize'>" + d.value + "</span></p>")
                 .style("position", "absolute")
@@ -198,7 +197,7 @@ angular.module('app.directives', [])
 
         for(var root in elements) {
           if(value === "count") {
-            barLength = (elements[root].children.length * 6);
+            barLength = (elements[root].children.length * 8);
           } else {
             barLength = (elements[root].value/2000);
           }
@@ -207,6 +206,8 @@ angular.module('app.directives', [])
           detailedHtml += "<div class='row'><div class='col-md-2'><p class='details'>" + elements[root].name + "(" + elements[root].children.length + ")</p></div><div class='col-md-6'><div class='details' style=' background-color:" +  color1(elements[root].name) + ";'></div></div><div class='col-md-2'><p class='details percentage'></p></div><div class='col-md-2'><a class='view-data' style='cursor: pointer;' >view</a></div></div><hr class='details'>";
         }
 
+        var barscale = 300/(d3.max(barLengths));
+        
 
         Details.html(detailedHtml)
                 .style("opacity", 0)
@@ -221,7 +222,7 @@ angular.module('app.directives', [])
             .delay(2500)
             .duration(1500)
             .style("width", function(d) {
-              return d + "px";
+              return (d * barscale) + "px";
             });
 
         d3.selectAll("p.percentage")
@@ -290,7 +291,8 @@ angular.module('app.directives', [])
 
       // Function for Data Validation
       function dataValidate(data) {
-        if( data === null || data === "") {
+        console.log(data);
+        if( data === undefined || data === null || data === "") {
           alert("Data is not valid");
         } else {
           alert("Data is valid");
