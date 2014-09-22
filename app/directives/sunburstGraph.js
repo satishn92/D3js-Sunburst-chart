@@ -158,12 +158,13 @@ angular.module('app.directives', [])
 
       // Changes the value to Size and Count on changing the selection of the checkBoxes.
       function change() {
+        console.log("Change event called");
         var value = this.value === "count"
             ? function() { return 1; }
-            : function(d) { 
-                if($scope.size === "size") return d.size;
-                if($scope.size === "calories") return d.calories; 
+            : function(d) {
+                return d[$scope.size]; 
               };
+        console.log(value);
 
         Data.style("opacity", 0);
 
@@ -184,7 +185,8 @@ angular.module('app.directives', [])
             // totalBarLength = 0,
             barLength = 0,
             percentage = 0,
-            barLengths = [];
+            barLengths = []
+            noOfChildren = 0;
 
         // closure to get barLength
         var getTotalBarLength = (function() {
@@ -197,13 +199,23 @@ angular.module('app.directives', [])
 
         for(var root in elements) {
           if(value === "count") {
-            barLength = (elements[root].children.length );
+            if (elements[root].children) {
+              barLength = (elements[root].children.length );
+            } else {
+              barLength = 0;
+            }
           } else {
             barLength = (elements[root].value);
           }
           barLengths.push(barLength);
           getTotalBarLength(barLength);
-          detailedHtml += "<div class='row'><div class='col-md-2'><p class='details'>" + elements[root].name + "(" + elements[root].children.length + ")</p></div><div class='col-md-6'><div class='details' style=' background-color:" +  color1(elements[root].name) + ";'></div></div><div class='col-md-2'><p class='details percentage'></p></div><div class='col-md-2'><a class='view-data' style='cursor: pointer;' >view</a></div></div><hr class='details'>";
+          noOfChildren = elements[root].children ? elements[root].children.length : 0;
+          if(noOfChildren === 0){
+            detailedHtml += "<div class='row'><div class='col-md-2'><p class='details'>" + elements[root].name + "(" + noOfChildren + ")</p></div><div class='col-md-6'><div class='details' style=' background-color:" +  color1(elements[root].name) + ";'></div></div><div class='col-md-2'><p class='details percentage'></p></div><div class='col-md-2'></div></div><hr class='details'>";
+          } else {
+            detailedHtml += "<div class='row'><div class='col-md-2'><p class='details'>" + elements[root].name + "(" + noOfChildren + ")</p></div><div class='col-md-6'><div class='details' style=' background-color:" +  color1(elements[root].name) + ";'></div></div><div class='col-md-2'><p class='details percentage'></p></div><div class='col-md-2'><a class='view-data' style='cursor: pointer;' >view</a></div></div><hr class='details'>";
+          }
+          // detailedHtml += "<div class='row'><div class='col-md-2'><p class='details'>" + elements[root].name + "(" + noOfChildren + ")</p></div><div class='col-md-6'><div class='details' style=' background-color:" +  color1(elements[root].name) + ";'></div></div><div class='col-md-2'><p class='details percentage'></p></div><div class='col-md-2'><a class='view-data' style='cursor: pointer;' >view</a></div></div><hr class='details'>";
         }
 
         var barscale = 300/(d3.max(barLengths));
@@ -291,7 +303,6 @@ angular.module('app.directives', [])
 
       // Function for Data Validation
       function dataValidate(data) {
-        console.log(data);
         if( data === undefined || data === null || data === "") {
           alert("Data is not valid");
         } else {

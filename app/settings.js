@@ -215,7 +215,7 @@ angular.module('app.settings', [])
         },
         {"name": "IEvaluable", "size": 335},
         {"name": "IPredicate", "size": 383},
-        {"name": "IValueProxy", "size": 874},
+        {"name": "INumberProxy", "size": 874},
         {
          "name": "math",
          "children": [
@@ -432,6 +432,168 @@ angular.module('app.settings', [])
         {"name": "others", "calories": 300}
       ]},
       {"name": "Others", "calories": 300}
+    ]
+  },
+
+  "Punishments": {
+    "name" : "punishments",
+    "children": [
+    {
+    "name" : "female",
+    "children" : [
+        {
+        "name":"Corporal",
+        "total":1603,
+        "children" : [
+        {"name" : "1670s*", "Number" : 18},{"name" : "1680s*", "Number" : 105},{"name" : "1690s*", "Number" : 172},{"name" : "1700s*", "Number" : 55},{"name" : "1710s*", "Number" : 161},{"name" : "1720s", "Number" : 100},{"name" : "1730s", "Number" : 72},{"name" : "1740s", "Number" : 196},{"name" : "1750s", "Number" : 123},{"name" : "1760s", "Number" : 111},{"name" : "1770s", "Number" : 219},{"name" : "1780s", "Number" : 165},{"name" : "1790s", "Number" : 46},{"name" : "1800s", "Number" : 53},{"name" : "1810s", "Number" : 7},{"name" : "1820s", "Number" : 0},{"name" : "1830s", "Number" : 0},{"name" : "1840s", "Number" : 0},{"name" : "1850s", "Number" : 0},{"name" : "1860s", "Number" : 0},{"name" : "1870s", "Number" : 0},{"name" : "1880s", "Number" : 0},{"name" : "1890s", "Number" : 0},{"name" : "1900s", "Number" : 0},{"name" : "1910s*", "Number" : 0}
+        ]
+        },
+        {
+        "name":"Death",
+        "total":2042,
+        "children" : [
+        {"name" : "1670s*", "Number" : 38},{"name" : "1680s*", "Number" : 193},{"name" : "1690s*", "Number" : 223},{"name" : "1700s*", "Number" : 30},{"name" : "1710s*", "Number" : 136},{"name" : "1720s", "Number" : 123},{"name" : "1730s", "Number" : 67},{"name" : "1740s", "Number" : 98},{"name" : "1750s", "Number" : 64},{"name" : "1760s", "Number" : 68},{"name" : "1770s", "Number" : 67},{"name" : "1780s", "Number" : 161},{"name" : "1790s", "Number" : 93},{"name" : "1800s", "Number" : 135},{"name" : "1810s", "Number" : 245},{"name" : "1820s", "Number" : 183},{"name" : "1830s", "Number" : 64},{"name" : "1840s", "Number" : 14},{"name" : "1850s", "Number" : 4},{"name" : "1860s", "Number" : 3},{"name" : "1870s", "Number" : 10},{"name" : "1880s", "Number" : 5},{"name" : "1890s", "Number" : 9},{"name" : "1900s", "Number" : 8},{"name" : "1910s*", "Number" : 1}
+        ]},
+        {
+        "name":"Imprisonment",
+        "total":13578,
+        "children" : [
+        {"name" : "1670s*", "Number" : 1},{"name" : "1680s*", "Number" : 2},{"name" : "1690s*", "Number" : 2},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 2},{"name" : "1720s", "Number" : 0},{"name" : "1730s", "Number" : 2},{"name" : "1740s", "Number" : 0},{"name" : "1750s", "Number" : 3},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 65},{"name" : "1780s", "Number" : 270},{"name" : "1790s", "Number" : 19},{"name" : "1800s", "Number" : 103},{"name" : "1810s", "Number" : 321},{"name" : "1820s", "Number" : 1369},{"name" : "1830s", "Number" : 2250},{"name" : "1840s", "Number" : 3553},{"name" : "1850s", "Number" : 1785},{"name" : "1860s", "Number" : 1325},{"name" : "1870s", "Number" : 702},{"name" : "1880s", "Number" : 671},{"name" : "1890s", "Number" : 483},{"name" : "1900s", "Number" : 504},{"name" : "1910s*", "Number" : 146}
+        ]},
+        {
+        "name":"Miscellaneous",
+        "total":2038,
+        "children" : [
+        {"name" : "1670s*", "Number" : 8},{"name" : "1680s*", "Number" : 66},{"name" : "1690s*", "Number" : 500},{"name" : "1700s*", "Number" : 90},{"name" : "1710s*", "Number" : 266},{"name" : "1720s", "Number" : 71},{"name" : "1730s", "Number" : 46},{"name" : "1740s", "Number" : 49},{"name" : "1750s", "Number" : 48},{"name" : "1760s", "Number" : 56},{"name" : "1770s", "Number" : 66},{"name" : "1780s", "Number" : 15},{"name" : "1790s", "Number" : 27},{"name" : "1800s", "Number" : 52},{"name" : "1810s", "Number" : 105},{"name" : "1820s", "Number" : 156},{"name" : "1830s", "Number" : 54},{"name" : "1840s", "Number" : 10},{"name" : "1850s", "Number" : 4},{"name" : "1860s", "Number" : 11},{"name" : "1870s", "Number" : 18},{"name" : "1880s", "Number" : 44},{"name" : "1890s", "Number" : 105},{"name" : "1900s", "Number" : 126},{"name" : "1910s*", "Number" : 45}
+        ]},
+        {
+        "name":"No Punishment",
+        "total":1250,
+        "children" : [
+        {"name" : "1670s*", "Number" : 1},{"name" : "1680s*", "Number" : 58},{"name" : "1690s*", "Number" : 74},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 41},{"name" : "1720s", "Number" : 1},{"name" : "1730s", "Number" : 0},{"name" : "1740s", "Number" : 1},{"name" : "1750s", "Number" : 7},{"name" : "1760s", "Number" : 1},{"name" : "1770s", "Number" : 8},{"name" : "1780s", "Number" : 6},{"name" : "1790s", "Number" : 9},{"name" : "1800s", "Number" : 12},{"name" : "1810s", "Number" : 59},{"name" : "1820s", "Number" : 108},{"name" : "1830s", "Number" : 144},{"name" : "1840s", "Number" : 206},{"name" : "1850s", "Number" : 95},{"name" : "1860s", "Number" : 101},{"name" : "1870s", "Number" : 97},{"name" : "1880s", "Number" : 93},{"name" : "1890s", "Number" : 63},{"name" : "1900s", "Number" : 47},{"name" : "1910s*", "Number" : 18}
+        ]},
+        {
+        "name":"Transportation",
+        "total":10159,
+        "children" : [
+        {"name" : "1670s*", "Number" : 3},{"name" : "1680s*", "Number" : 15},{"name" : "1690s*", "Number" : 14},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 130},{"name" : "1720s", "Number" : 908},{"name" : "1730s", "Number" : 877},{"name" : "1740s", "Number" : 781},{"name" : "1750s", "Number" : 736},{"name" : "1760s", "Number" : 664},{"name" : "1770s", "Number" : 478},{"name" : "1780s", "Number" : 332},{"name" : "1790s", "Number" : 354},{"name" : "1800s", "Number" : 476},{"name" : "1810s", "Number" : 672},{"name" : "1820s", "Number" : 1123},{"name" : "1830s", "Number" : 1676},{"name" : "1840s", "Number" : 803},{"name" : "1850s", "Number" : 117},{"name" : "1860s", "Number" : 0},{"name" : "1870s", "Number" : 0},{"name" : "1880s", "Number" : 0},{"name" : "1890s", "Number" : 0},{"name" : "1900s", "Number" : 0},{"name" : "1910s*", "Number" : 0}
+        ]},
+        {
+        "name":"multiple punishments",
+        "total":3282,
+        "children" : [
+        {"name" : "1670s*", "Number" : 0},{"name" : "1680s*", "Number" : 22},{"name" : "1690s*", "Number" : 20},{"name" : "1700s*", "Number" : 36},{"name" : "1710s*", "Number" : 31},{"name" : "1720s", "Number" : 29},{"name" : "1730s", "Number" : 7},{"name" : "1740s", "Number" : 58},{"name" : "1750s", "Number" : 49},{"name" : "1760s", "Number" : 54},{"name" : "1770s", "Number" : 259},{"name" : "1780s", "Number" : 532},{"name" : "1790s", "Number" : 557},{"name" : "1800s", "Number" : 762},{"name" : "1810s", "Number" : 763},{"name" : "1820s", "Number" : 32},{"name" : "1830s", "Number" : 13},{"name" : "1840s", "Number" : 23},{"name" : "1850s", "Number" : 7},{"name" : "1860s", "Number" : 3},{"name" : "1870s", "Number" : 2},{"name" : "1880s", "Number" : 7},{"name" : "1890s", "Number" : 5},{"name" : "1900s", "Number" : 5},{"name" : "1910s*", "Number" : 6}
+      ]}
+    ]
+    },
+    {
+    "name" : "male",
+    "children" : [
+      {
+      "name":"multiple punishments",
+      "total":10239,
+      "children" : [
+      {"name" : "1670s*", "Number" : 5},{"name" : "1680s*", "Number" : 101},{"name" : "1690s*", "Number" : 73},{"name" : "1700s*", "Number" : 26},{"name" : "1710s*", "Number" : 76},{"name" : "1720s", "Number" : 126},{"name" : "1730s", "Number" : 42},{"name" : "1740s", "Number" : 163},{"name" : "1750s", "Number" : 200},{"name" : "1760s", "Number" : 276},{"name" : "1770s", "Number" : 639},{"name" : "1780s", "Number" : 1207},{"name" : "1790s", "Number" : 1204},{"name" : "1800s", "Number" : 1408},{"name" : "1810s", "Number" : 1996},{"name" : "1820s", "Number" : 923},{"name" : "1830s", "Number" : 321},{"name" : "1840s", "Number" : 508},{"name" : "1850s", "Number" : 124},{"name" : "1860s", "Number" : 145},{"name" : "1870s", "Number" : 115},{"name" : "1880s", "Number" : 146},{"name" : "1890s", "Number" : 186},{"name" : "1900s", "Number" : 145},{"name" : "1910s*", "Number" : 84}
+      ]
+      },
+      {
+      "name":"Corporal",
+      "total":3689,
+      "children" : [
+      {"name" : "1670s*", "Number" : 12},{"name" : "1680s*", "Number" : 215},{"name" : "1690s*", "Number" : 121},{"name" : "1700s*", "Number" : 29},{"name" : "1710s*", "Number" : 243},{"name" : "1720s", "Number" : 116},{"name" : "1730s", "Number" : 58},{"name" : "1740s", "Number" : 128},{"name" : "1750s", "Number" : 120},{"name" : "1760s", "Number" : 134},{"name" : "1770s", "Number" : 315},{"name" : "1780s", "Number" : 546},{"name" : "1790s", "Number" : 235},{"name" : "1800s", "Number" : 238},{"name" : "1810s", "Number" : 268},{"name" : "1820s", "Number" : 643},{"name" : "1830s", "Number" : 220},{"name" : "1840s", "Number" : 28},{"name" : "1850s", "Number" : 1},{"name" : "1860s", "Number" : 0},{"name" : "1870s", "Number" : 1},{"name" : "1880s", "Number" : 4},{"name" : "1890s", "Number" : 12},{"name" : "1900s", "Number" : 2},{"name" : "1910s*", "Number" : 0}
+      ]
+      },
+      {
+      "name":"Death",
+      "total":12098,
+      "children" : [
+      {"name" : "1670s*", "Number" : 92},{"name" : "1680s*", "Number" : 465},{"name" : "1690s*", "Number" : 538},{"name" : "1700s*", "Number" : 86},{"name" : "1710s*", "Number" : 424},{"name" : "1720s", "Number" : 485},{"name" : "1730s", "Number" : 503},{"name" : "1740s", "Number" : 503},{"name" : "1750s", "Number" : 674},{"name" : "1760s", "Number" : 760},{"name" : "1770s", "Number" : 1066},{"name" : "1780s", "Number" : 1248},{"name" : "1790s", "Number" : 683},{"name" : "1800s", "Number" : 683},{"name" : "1810s", "Number" : 1317},{"name" : "1820s", "Number" : 1500},{"name" : "1830s", "Number" : 715},{"name" : "1840s", "Number" : 61},{"name" : "1850s", "Number" : 52},{"name" : "1860s", "Number" : 43},{"name" : "1870s", "Number" : 37},{"name" : "1880s", "Number" : 37},{"name" : "1890s", "Number" : 44},{"name" : "1900s", "Number" : 61},{"name" : "1910s*", "Number" : 21}
+      ]
+      },
+      {
+      "name":"Miscellaneous",
+      "total":5563,
+      "children": [
+      {"name" : "1670s*", "Number" : 47},{"name" : "1680s*", "Number" : 438},{"name" : "1690s*", "Number" : 531},{"name" : "1700s*", "Number" : 76},{"name" : "1710s*", "Number" : 395},{"name" : "1720s", "Number" : 216},{"name" : "1730s", "Number" : 104},{"name" : "1740s", "Number" : 98},{"name" : "1750s", "Number" : 112},{"name" : "1760s", "Number" : 119},{"name" : "1770s", "Number" : 164},{"name" : "1780s", "Number" : 74},{"name" : "1790s", "Number" : 109},{"name" : "1800s", "Number" : 87},{"name" : "1810s", "Number" : 287},{"name" : "1820s", "Number" : 507},{"name" : "1830s", "Number" : 180},{"name" : "1840s", "Number" : 103},{"name" : "1850s", "Number" : 89},{"name" : "1860s", "Number" : 141},{"name" : "1870s", "Number" : 128},{"name" : "1880s", "Number" : 287},{"name" : "1890s", "Number" : 479},{"name" : "1900s", "Number" : 530},{"name" : "1910s*", "Number" : 262}
+      ]
+      },
+      {
+      "name":"No Punishment",
+      "total":4543,
+      "children": [
+      {"name" : "1670s*", "Number" : 6},{"name" : "1680s*", "Number" : 178},{"name" : "1690s*", "Number" : 170},{"name" : "1700s*", "Number" : 2},{"name" : "1710s*", "Number" : 60},{"name" : "1720s", "Number" : 3},{"name" : "1730s", "Number" : 5},{"name" : "1740s", "Number" : 17},{"name" : "1750s", "Number" : 31},{"name" : "1760s", "Number" : 14},{"name" : "1770s", "Number" : 49},{"name" : "1780s", "Number" : 72},{"name" : "1790s", "Number" : 164},{"name" : "1800s", "Number" : 90},{"name" : "1810s", "Number" : 509},{"name" : "1820s", "Number" : 307},{"name" : "1830s", "Number" : 345},{"name" : "1840s", "Number" : 278},{"name" : "1850s", "Number" : 265},{"name" : "1860s", "Number" : 252},{"name" : "1870s", "Number" : 285},{"name" : "1880s", "Number" : 456},{"name" : "1890s", "Number" : 622},{"name" : "1900s", "Number" : 261},{"name" : "1910s*", "Number" : 102}
+      ]
+      },
+      {
+      "name":"Transportation",
+      "total":36403,
+      "children" : [
+      {"name" : "1670s*", "Number" : 4},{"name" : "1680s*", "Number" : 168},{"name" : "1690s*", "Number" : 74},{"name" : "1700s*", "Number" : 6},{"name" : "1710s*", "Number" : 180},{"name" : "1720s", "Number" : 1555},{"name" : "1730s", "Number" : 1464},{"name" : "1740s", "Number" : 1275},{"name" : "1750s", "Number" : 1393},{"name" : "1760s", "Number" : 1719},{"name" : "1770s", "Number" : 1358},{"name" : "1780s", "Number" : 1915},{"name" : "1790s", "Number" : 1424},{"name" : "1800s", "Number" : 1628},{"name" : "1810s", "Number" : 3414},{"name" : "1820s", "Number" : 5509},{"name" : "1830s", "Number" : 7102},{"name" : "1840s", "Number" : 5121},{"name" : "1850s", "Number" : 1094},{"name" : "1860s", "Number" : 0},{"name" : "1870s", "Number" : 0},{"name" : "1880s", "Number" : 0},{"name" : "1890s", "Number" : 0},{"name" : "1900s", "Number" : 0},{"name" : "1910s*", "Number" : 0}
+      ]
+      },
+      {
+      "name":"Imprisonment",
+      "total":69540,
+      "children": [
+      {"name" : "1670s*", "Number" : 0},{"name" : "1680s*", "Number" : 2},{"name" : "1690s*", "Number" : 3},{"name" : "1700s*", "Number" : 3},{"name" : "1710s*", "Number" : 6},{"name" : "1720s", "Number" : 11},{"name" : "1730s", "Number" : 4},{"name" : "1740s", "Number" : 1},{"name" : "1750s", "Number" : 3},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 316},{"name" : "1780s", "Number" : 445},{"name" : "1790s", "Number" : 107},{"name" : "1800s", "Number" : 220},{"name" : "1810s", "Number" : 729},{"name" : "1820s", "Number" : 3699},{"name" : "1830s", "Number" : 7234},{"name" : "1840s", "Number" : 13131},{"name" : "1850s", "Number" : 8182},{"name" : "1860s", "Number" : 7677},{"name" : "1870s", "Number" : 5855},{"name" : "1880s", "Number" : 7356},{"name" : "1890s", "Number" : 6213},{"name" : "1900s", "Number" : 6245},{"name" : "1910s*", "Number" : 2098}
+      ]
+      }
+    ]
+    },
+      {
+      "name" : "indeterminate",
+      "children" : [
+        {
+        "name":"multiple punishments",
+        "total":18,
+        "children": [
+        {"name" : "1670s*", "Number" : 2},{"name" : "1680s*", "Number" : 0},{"name" : "1690s*", "Number" : 0},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 1},{"name" : "1720s", "Number" : 1},{"name" : "1730s", "Number" : 2},{"name" : "1740s", "Number" : 0},{"name" : "1750s", "Number" : 1},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 2},{"name" : "1780s", "Number" : 0},{"name" : "1790s", "Number" : 0},{"name" : "1810s", "Number" : 1},{"name" : "1820s", "Number" : 0},{"name" : "1830s", "Number" : 1},{"name" : "1840s", "Number" : 2},{"name" : "1850s", "Number" : 1},{"name" : "1860s", "Number" : 0},{"name" : "1870s", "Number" : 1},{"name" : "1880s", "Number" : 1},{"name" : "1890s", "Number" : 1},{"name" : "1900s", "Number" : 0},{"name" : "1910s*", "Number" : 1}
+        ]
+        },
+        {
+        "name":"Corporal",
+        "total":13,
+        "children": [
+        {"name" : "1670s*", "Number" : 1},{"name" : "1680s*", "Number" : 0},{"name" : "1690s*", "Number" : 0},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 5},{"name" : "1720s", "Number" : 1},{"name" : "1730s", "Number" : 0},{"name" : "1740s", "Number" : 4},{"name" : "1750s", "Number" : 1},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 0},{"name" : "1780s", "Number" : 0},{"name" : "1790s", "Number" : 0},{"name" : "1810s", "Number" : 0},{"name" : "1820s", "Number" : 0},{"name" : "1830s", "Number" : 0},{"name" : "1840s", "Number" : 1},{"name" : "1850s", "Number" : 0},{"name" : "1860s", "Number" : 0},{"name" : "1870s", "Number" : 0},{"name" : "1880s", "Number" : 0},{"name" : "1890s", "Number" : 0},{"name" : "1900s", "Number" : 0},{"name" : "1910s*", "Number" : 0}
+        ]
+        },
+        {
+        "name":"Death",
+        "total":31,
+        "children": [
+        {"name" : "1670s*", "Number" : 5},{"name" : "1680s*", "Number" : 1},{"name" : "1690s*", "Number" : 0},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 10},{"name" : "1720s", "Number" : 0},{"name" : "1730s", "Number" : 4},{"name" : "1740s", "Number" : 2},{"name" : "1750s", "Number" : 4},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 0},{"name" : "1780s", "Number" : 0},{"name" : "1790s", "Number" : 0},{"name" : "1810s", "Number" : 0},{"name" : "1820s", "Number" : 0},{"name" : "1830s", "Number" : 2},{"name" : "1840s", "Number" : 0},{"name" : "1850s", "Number" : 0},{"name" : "1860s", "Number" : 1},{"name" : "1870s", "Number" : 0},{"name" : "1880s", "Number" : 0},{"name" : "1890s", "Number" : 0},{"name" : "1900s", "Number" : 1},{"name" : "1910s*", "Number" : 1}
+        ]
+        },
+        {
+        "name":"Miscellaneous",
+        "total":62,
+        "children": [
+        {"name" : "1670s*", "Number" : 5},{"name" : "1680s*", "Number" : 2},{"name" : "1690s*", "Number" : 4},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 17},{"name" : "1720s", "Number" : 5},{"name" : "1730s", "Number" : 2},{"name" : "1740s", "Number" : 4},{"name" : "1750s", "Number" : 2},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 0},{"name" : "1780s", "Number" : 0},{"name" : "1790s", "Number" : 0},{"name" : "1810s", "Number" : 0},{"name" : "1820s", "Number" : 0},{"name" : "1830s", "Number" : 1},{"name" : "1840s", "Number" : 2},{"name" : "1850s", "Number" : 2},{"name" : "1860s", "Number" : 3},{"name" : "1870s", "Number" : 1},{"name" : "1880s", "Number" : 3},{"name" : "1890s", "Number" : 0},{"name" : "1900s", "Number" : 7},{"name" : "1910s*", "Number" : 2}
+        ]
+        },
+        {
+        "name":"No Punishment",
+        "total":26,
+        "children" : [
+        {"name" : "1670s*", "Number" : 0},{"name" : "1680s*", "Number" : 0},{"name" : "1690s*", "Number" : 4},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 0},{"name" : "1720s", "Number" : 0},{"name" : "1730s", "Number" : 0},{"name" : "1740s", "Number" : 0},{"name" : "1750s", "Number" : 0},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 0},{"name" : "1780s", "Number" : 0},{"name" : "1790s", "Number" : 0},{"name" : "1810s", "Number" : 0},{"name" : "1820s", "Number" : 0},{"name" : "1830s", "Number" : 1},{"name" : "1840s", "Number" : 7},{"name" : "1850s", "Number" : 3},{"name" : "1860s", "Number" : 2},{"name" : "1870s", "Number" : 1},{"name" : "1880s", "Number" : 3},{"name" : "1890s", "Number" : 4},{"name" : "1900s", "Number" : 0},{"name" : "1910s*", "Number" : 1}
+        ]
+        },
+        {
+        "name":"Transportation",
+        "total":111,
+        "children" : [
+        {"name" : "1670s*", "Number" : 0},{"name" : "1680s*", "Number" : 0},{"name" : "1690s*", "Number" : 0},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 4},{"name" : "1720s", "Number" : 7},{"name" : "1730s", "Number" : 32},{"name" : "1740s", "Number" : 9},{"name" : "1750s", "Number" : 9},{"name" : "1760s", "Number" : 2},{"name" : "1770s", "Number" : 1},{"name" : "1780s", "Number" : 1},{"name" : "1790s", "Number" : 0},{"name" : "1810s", "Number" : 0},{"name" : "1820s", "Number" : 1},{"name" : "1830s", "Number" : 11},{"name" : "1840s", "Number" : 28},{"name" : "1850s", "Number" : 6},{"name" : "1860s", "Number" : 0},{"name" : "1870s", "Number" : 0},{"name" : "1880s", "Number" : 0},{"name" : "1890s", "Number" : 0},{"name" : "1900s", "Number" : 0},{"name" : "1910s*", "Number" : 0}
+        ]
+        },
+        {
+        "name":"Imprisonment",
+        "total":344,
+        "children" : [
+        {"name" : "1670s*", "Number" : 0},{"name" : "1680s*", "Number" : 0},{"name" : "1690s*", "Number" : 0},{"name" : "1700s*", "Number" : 0},{"name" : "1710s*", "Number" : 0},{"name" : "1720s", "Number" : 0},{"name" : "1730s", "Number" : 0},{"name" : "1740s", "Number" : 0},{"name" : "1750s", "Number" : 0},{"name" : "1760s", "Number" : 0},{"name" : "1770s", "Number" : 0},{"name" : "1780s", "Number" : 0},{"name" : "1790s", "Number" : 0},{"name" : "1810s", "Number" : 0},{"name" : "1820s", "Number" : 0},{"name" : "1830s", "Number" : 25},{"name" : "1840s", "Number" : 74},{"name" : "1850s", "Number" : 50},{"name" : "1860s", "Number" : 41},{"name" : "1870s", "Number" : 43},{"name" : "1880s", "Number" : 47},{"name" : "1890s", "Number" : 21},{"name" : "1900s", "Number" : 34},{"name" : "1910s*", "Number" : 9}
+        ]
+        }
+      ]
+      }
     ]
   }
 });
