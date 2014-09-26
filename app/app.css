@@ -59,14 +59,15 @@ div.Details{
 }
 
 div.Data{
-  position: absolute;
-  right: 5%;
-  top: 510px;
-  width: 40%;
+  width: 60%;
   margin-bottom: 30px;
   background-color: #F7FAF9 ;
   padding:10px;
   display: none;
+}
+
+div.dataContainer{
+  padding-right: 50px;
 }
 
 p.details{
@@ -98,3 +99,4 @@ div.container{
   position: relative;
   width: 100%;
 }
+

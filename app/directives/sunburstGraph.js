@@ -18,7 +18,7 @@ angular.module('app.directives', [])
           color4 = d3.scale.category20c(),
           color = [color1, color2, color3, color4];
 
-      var svg = d3.select("div.container").append("svg")
+      var svg = d3.select("div.svgContainer").append("svg")
           .attr("width", width)
           .attr("height", height)
           .append("g")
@@ -58,21 +58,21 @@ angular.module('app.directives', [])
       d3.selectAll("input.valueBox").on("change", change); 
 
       // Appending legend to the container
-      var legend = d3.select("div.container").append("div")
+      var legend = d3.select("div.legendContainer").append("div")
           .attr("class", "legend")
           .style("width", "500px")
           .style("height", "500px")
           .style("color", "white");
 
       // Appending Details box to the container
-      var Details = d3.select("div.container").append("div")
+      var Details = d3.select("div.detailsContainer").append("div")
           .attr("class", "Details");
 
       // Show the details of root element in details box on page load
       showDetails("count",$scope.data.children);
 
-      var Data = d3.select("div.container").append("div")
-          .attr("class", "Data");
+      var Data = d3.select("div.dataContainer").append("div")
+          .attr("class", "Data pull-right");
 
       // Appending tooltip to the container
       var tooltip = d3.select("body").append("div")
